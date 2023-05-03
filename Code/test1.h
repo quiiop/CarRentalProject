@@ -25,7 +25,8 @@ public:
     int save_file(QString file_path);
     void Rental_car_info();
     void check_car_info();
-    void check_label();
+    int check_label();
+    int regex_label(QString str);
 
     Car car;
 

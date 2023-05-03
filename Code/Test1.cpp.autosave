@@ -81,7 +81,7 @@ int Test1::save_file(QString filePath){
 
 void Test1::Rental_car_info(){
     car.set_car(BrandInput, KmInput, ModelLine, CarStatus, MaxSeatLine, RentalPriceLine, filePath);
-    // check_car_info();
+    // db.saveData(car.get_BrandInput(), car.KmInput)
 }
 
 void Test1::check_label(){

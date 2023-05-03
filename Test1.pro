@@ -29,18 +29,20 @@ INCLUDEPATH = $$PWD\Code \
 SOURCES += \
         Code\main.cpp \
         Code\mainwindow.cpp \
-    Code/test1.cpp \
-    Code/test2.cpp
+    Code/test2.cpp \
+    Code/car.cpp \
+    Code/test1.cpp
 
 HEADERS += \
         Code\mainwindow.h \
-    Code/test1.h \
-    Code/test2.h
+    Code/test2.h \
+    Code/car.h \
+    Code/test1.h
 
 FORMS += \
         Code\mainwindow.ui \
-    Code/test1.ui \
-    Code/test2.ui
+    Code/test2.ui \
+    Code/test1.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

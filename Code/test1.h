@@ -7,6 +7,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QString>
+#include "car.h"
 
 namespace Ui {
 class Test1;
@@ -21,6 +22,12 @@ public:
     ~Test1();
     void emitSignal_test(int);
     void slot_test(QLabel *label);
+    int save_file(QString file_path);
+    void Rental_car_info();
+    void check_car_info();
+    void check_label();
+
+    Car car;
 
     QLineEdit *BrandLine;
     QString BrandInput;

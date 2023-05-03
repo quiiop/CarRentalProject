@@ -3,9 +3,9 @@
 # Project created by QtCreator 2023-04-30T11:48:40
 #
 #-------------------------------------------------
-
 QT       += core gui
-
+QT       += sql
+QT       += widgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Test1
@@ -31,13 +31,15 @@ SOURCES += \
         Code\mainwindow.cpp \
     Code/test2.cpp \
     Code/car.cpp \
-    Code/test1.cpp
+    Code/test1.cpp \
+    Code/database.cpp
 
 HEADERS += \
         Code\mainwindow.h \
     Code/test2.h \
     Code/car.h \
-    Code/test1.h
+    Code/test1.h \
+    Code/database.h
 
 FORMS += \
         Code\mainwindow.ui \

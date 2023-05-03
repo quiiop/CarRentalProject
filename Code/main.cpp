@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
 
     MainWindow window;
     window.show();
-
+    dbdConnection();
+    //AddCar("TOYOTA","WISH",15400,7,3000,"C/asdasdasd");
     return a.exec();
 }

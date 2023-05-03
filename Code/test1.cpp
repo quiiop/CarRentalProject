@@ -203,9 +203,11 @@ void Test1::on_SubmitButton_clicked()
     QLabel *message = ui->message;
     int r2 = save_file(filePath);
     qDebug()<<"r1 = "<<r1<<" r2 = "<<r2;
-    // int r3 = Add(car.get_BrandInput(), car.KmInput, car.MaxSeatLine, car.ModelLine, car.CarStatus, car.RentalPriceLine);
-    if (r1==1 && r2==1){ // add && r3==1
-       Rental_car_info();
+    Rental_car_info();
+    qDebug()<<"Brand Line "<<car.get_BrandInput();
+    int r3 = AdddCar(car.get_BrandInput(),car.ModelLine,car.KmInput,car.MaxSeatLine,car.RentalPriceLine,car.filePath);
+    if (r1==1 && r2==1 && r3==1){ // add && r3==1
+
        message->setText("上傳成功");
     }else{
         message->setText("上傳失敗");

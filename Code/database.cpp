@@ -5,8 +5,8 @@ bool dbdConnection() {
     db.setHostName("140.124.183.46");
     db.setPort(3306);
     db.setDatabaseName("Mysql");
-    db.setUserName("root");
-    db.setPassword("123456");
+    db.setUserName("ooad");
+    db.setPassword("Csslab438");
     if (!db.open()) {
         return false;
     }

@@ -32,14 +32,16 @@ SOURCES += \
     Code/test2.cpp \
     Code/car.cpp \
     Code/test1.cpp \
-    Code/database.cpp
+    Code/database.cpp \
+    Code/person.cpp
 
 HEADERS += \
         Code\mainwindow.h \
     Code/test2.h \
     Code/car.h \
     Code/test1.h \
-    Code/database.h
+    Code/database.h \
+    Code/person.h
 
 FORMS += \
         Code\mainwindow.ui \

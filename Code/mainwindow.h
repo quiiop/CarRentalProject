@@ -16,9 +16,17 @@ public:
     ~MainWindow();
 
     Test1 *upload_car_infor_w;
+    QString Account;
+    QString Password;
 
 private slots:
-    void on_pushButton_clicked();
+    void on_Account_lineEdit_textEdited(const QString &arg1);
+
+    void on_Password_lineEdit_textEdited(const QString &arg1);
+
+    void on_Login_Button_clicked();
+
+    void on_Upload_Car_Button_clicked();
 
 private:
     Ui::MainWindow *ui;

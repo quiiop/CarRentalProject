@@ -14,6 +14,7 @@ public:
     QString RentalPriceLine;
     QString CarStatus;
     QString filePath;
+    bool is_rental;
 
     QString get_BrandInput();
     void set_car(QString BrandInput, QString KmInput, QString ModelLine, QString CarStatus, QString MaxSeatLine, QString RentalPriceLine, QString filePath);

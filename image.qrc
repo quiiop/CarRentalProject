@@ -3,5 +3,6 @@
         <file>image/dog.jpg</file>
         <file>image/background.jpeg</file>
         <file>image/MainWindowBackground.jpg</file>
+        <file>image/white.png</file>
     </qresource>
 </RCC>

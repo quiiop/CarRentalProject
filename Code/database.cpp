@@ -2,11 +2,11 @@
 
 bool dbdConnection() {
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
-    db.setHostName("140.124.183.46");
+    db.setHostName("127.0.0.1");
     db.setPort(3306);
     db.setDatabaseName("Mysql");
-    db.setUserName("ooad");
-    db.setPassword("Csslab438");
+    db.setUserName("root");
+    db.setPassword("123456");
     if (!db.open()) {
         return false;
     }

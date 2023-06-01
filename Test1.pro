@@ -3,10 +3,8 @@
 # Project created by QtCreator 2023-04-30T11:48:40
 #
 #-------------------------------------------------
-QT       += core gui
-QT       += sql
-QT       += widgets
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core gui widgets sql
+greaterThan(QT_MAJOR_VERSION, 4):
 
 TARGET = Test1
 TEMPLATE = app
@@ -33,7 +31,9 @@ SOURCES += \
     Code/car.cpp \
     Code/test1.cpp \
     Code/database.cpp \
-    Code/person.cpp
+    Code/person.cpp \
+    Code/rental_car_system.cpp \
+    Code/order.cpp
 
 HEADERS += \
         Code\mainwindow.h \
@@ -41,7 +41,10 @@ HEADERS += \
     Code/car.h \
     Code/test1.h \
     Code/database.h \
-    Code/person.h
+    Code/person.h \
+    Code/customer.h \
+    Code/rental_car_system.h \
+    Code/order.h
 
 FORMS += \
         Code\mainwindow.ui \

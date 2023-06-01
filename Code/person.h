@@ -11,6 +11,8 @@ public:
     explicit Person();
     QString Account;
     QString Password;
+    bool is_rental_car;
+    int user_id;
 
 private:
 

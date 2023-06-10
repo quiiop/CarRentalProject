@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle("主畫面");
     this->setFixedSize(1217, 747);
-    ui->stackedWidget->setCurrentIndex(0); // Login Page
 
     upload_car_infor_w = new Test1(this);
     upload_car_infor_w->hide();
@@ -20,6 +19,14 @@ MainWindow::MainWindow(QWidget *parent) :
     rental_page = new Rental_Car(ui);
     rental_page_index = 0;
 
+    // Login
+    ui->stackedWidget->setCurrentIndex(0); // Login Page
+    int width = ui->Login_cover->width();
+    int height = ui->Login_cover->height();
+    QPixmap image("D:/QtProject/CarRentalProject/image/cover.jpg");
+    image = image.scaled(width, height);
+    ui->Login_cover->setPixmap(image);
+    ui->Login_cover->show();
 }
 
 MainWindow::~MainWindow()
@@ -157,4 +164,9 @@ void MainWindow::on_Return_Car_Button_clicked()
     rental_page_index = 0;
     car_array = rental_page->show_Rental_page(rental_page_index);
     ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::on_SigIn_Button_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
 }

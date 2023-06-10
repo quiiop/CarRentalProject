@@ -15,7 +15,7 @@ Car* Rental_Car::show_Rental_page(int rental_page_index)
     int width = mainwindow_ui->picture1->height();
     int height = mainwindow_ui->picture1->height();
 
-    std::string path = "D:/QtProject/CarRentalProject-main (1)/CarRentalProject-main/image/";
+    std::string path = "D:/QtProject/CarRentalProject/image/";
     std::string temp[] = {"car.png", "car2.jpg", "car3.jpg", "car4.jpg", "car5.jpg", "car6.jpg"};
     std::string img1_path = path + temp[rental_page_index];
     std::string img2_path = path + temp[rental_page_index+1];

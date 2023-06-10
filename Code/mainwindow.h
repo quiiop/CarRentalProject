@@ -59,6 +59,8 @@ private slots:
 
     void on_Return_Car_Button_clicked();
 
+    void on_SigIn_Button_clicked();
+
 protected:
     Ui::MainWindow *ui;
 };

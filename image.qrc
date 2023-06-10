@@ -4,5 +4,17 @@
         <file>image/background.jpeg</file>
         <file>image/MainWindowBackground.jpg</file>
         <file>image/white.png</file>
+        <file>image/car.png</file>
+        <file>image/car2.jpg</file>
+        <file>image/car3.jpg</file>
+        <file>image/car4.jpg</file>
+        <file>image/car5.jpg</file>
+        <file>image/car6.jpg</file>
+        <file>image/car7.jpg</file>
+        <file>image/car8.jpg</file>
+        <file>image/car-rental-banner.png</file>
+        <file>image/five+stars.png</file>
+        <file>image/cover.jpg</file>
+        <file>image/SigIN_Icon.png</file>
     </qresource>
 </RCC>

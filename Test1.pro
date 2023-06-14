@@ -3,7 +3,7 @@
 # Project created by QtCreator 2023-04-30T11:48:40
 #
 #-------------------------------------------------
-QT       += core gui widgets sql
+QT       += core gui widgets sql testlib
 greaterThan(QT_MAJOR_VERSION, 4):
 
 TARGET = Test1
@@ -20,7 +20,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-CONFIG += c++11
+CONFIG += c++11 moc
 
 INCLUDEPATH = $$PWD\Code \
 
@@ -34,7 +34,8 @@ SOURCES += \
     Code/person.cpp \
     Code/rental_car_system.cpp \
     Code/order.cpp \
-    Code/report.cpp
+    Code/report.cpp \
+    Code/test_first.cpp
 
 HEADERS += \
         Code\mainwindow.h \

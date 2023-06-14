@@ -150,12 +150,23 @@ void MainWindow::on_decide_order_Button_clicked()
     qDebug()<<"img : "<<rental_order->rental_car->filePath;
     qDebug()<<"Rental year= "<<rental_order->rental_date[0]<<" month= "<<rental_order->rental_date[1]<<" Date= "<<rental_order->rental_date[2];
     qDebug()<<"Expire year= "<<rental_order->expire_date[0]<<" month= "<<rental_order->expire_date[1]<<" Date= "<<rental_order->expire_date[2];
-    customer->is_rental_car = true;
     /*save order*/
     rental_order->car_id = rental_car.car_id;
     rental_order->user_id = customer->user_id;
     rental_order->order_id = "";
-
+    /*
+    這裡要儲存客戶的order
+    rental_order->car_id
+    rental_order->user_id
+    rental_order->order_id (DataBase自動產生)
+    */
+    
+    /*save customer*/
+    customer->is_rental_car = true;
+    /*
+    這裡要存customer的資料
+    customer->is_rental_car
+    */
     ui->stackedWidget->setCurrentIndex(5);
     int width = ui->order_product_picture->width();
     int height = ui->product_picture->height();
@@ -174,6 +185,10 @@ void MainWindow::on_decide_order_Button_clicked()
 void MainWindow::on_Return_Car_Button_clicked()
 {
     customer->is_rental_car = false;
+    /*
+    這裡要存customer的資料
+    customer->is_rental_car
+    */
     rental_page_index = 0;
     car_array = rental_page->show_Rental_page(rental_page_index);
     /* create report */
@@ -216,6 +231,16 @@ void MainWindow::on_SigIN_address_lineEdit_5_textEdited(const QString &arg1)
 void MainWindow::on_DecideSigin_Button_clicked()
 {
     // save object sign_customer
+    /*
+    存sign_customer
+    sigin_customer->Name
+    sigin_customer->phone
+    sigin_customer->Account
+    sigin_customer->Password
+    sigin_customer->address
+    sigin_customer->user_id (DataBase自動產生)
+    sigin_customer->is_rental_car (預設為false)
+    */
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -228,6 +253,10 @@ void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
 void MainWindow::on_customer_report_button_clicked()
 {
     /* save report */
+    /*
+     存report資料
+     rental_order->order_report->Evaluation;
+     */
     ui->stackedWidget->setCurrentIndex(2);
 }
 
@@ -244,7 +273,10 @@ void MainWindow::calculate_repair_report_pg(){
     /*test order*/
     int total_order = 13;
     order_array = new Order[total_order];
-
+    /*
+    這裡要改成從DataBase調出資料，存到order_array
+    */
+    
     QString BrandInput = "Toyota";
     for(int i=0; i<total_order; i++){
         order_array[i].car_id = "Test_car"+QString::number(i);
@@ -488,6 +520,12 @@ void MainWindow::on_Return_Report_Button_clicked()
     if(!check_report_1 || !check_report_2 || !check_report_3){
         ui->Return_Report_err_msg_label->setText("尚有資料未選擇 !");
     }else{
+        /*
+        這裡要把repaire report寫入dataBase
+        process_order->order_report->battery
+        process_order->order_report->engine
+        process_order->order_report->tire
+        */
         clear_repair_report_detail_pg();
         ui->stackedWidget->setCurrentIndex(8);
         clear_repair_report_pg();

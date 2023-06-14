@@ -64,7 +64,7 @@ int Test1::save_file(QString filePath){
     if (!filePath.isEmpty()) {
         QFile file(filePath);
         if (file.open(QIODevice::ReadOnly)) {
-            QString newFilePath = "E:/Qt project/Test1/image/"+file.fileName().split('/').last();
+            newFilePath = "C:/Users/CSS_Tim/Desktop/OOAD/CarRentalProject/image/"+file.fileName().split('/').last();
             QFile newFile(newFilePath);
             if (newFile.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Unbuffered)) {
                 QDataStream out(&newFile);
@@ -81,7 +81,7 @@ int Test1::save_file(QString filePath){
 }
 
 void Test1::Rental_car_info(){
-    car.set_car(BrandInput, KmInput, ModelLine, CarStatus, MaxSeatLine, RentalPriceLine, filePath);
+    car.set_car(BrandInput, KmInput, ModelLine, CarStatus, MaxSeatLine, RentalPriceLine, newFilePath);
     // db.saveData(car.get_BrandInput(), car.KmInput)
 }
 
@@ -207,7 +207,7 @@ void Test1::on_SubmitButton_clicked()
     qDebug()<<"r1 = "<<r1<<" r2 = "<<r2;
     Rental_car_info();
     qDebug()<<"Brand Line "<<car.get_BrandInput();
-    int r3 = db.addCar(car.get_BrandInput(),car.ModelLine,car.KmInput,car.MaxSeatLine,car.RentalPriceLine,car.filePath);
+    int r3 = db.addCar(car.get_BrandInput(),car.ModelLine,car.KmInput,car.MaxSeatLine,car.RentalPriceLine,car.CarStatus,car.filePath);
     if (r1==1 && r2==1 && r3==1){ // add && r3==1
 
        message->setText("上傳成功");

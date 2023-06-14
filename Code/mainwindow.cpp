@@ -55,20 +55,24 @@ void MainWindow::on_Password_lineEdit_textEdited(const QString &arg1)
 
 void MainWindow::on_Login_Button_clicked()
 {
-    if(Account=="customer" && Password=="password"){
-        customer = new Person();
-        if(customer->is_rental_car){
-            ui->stackedWidget->setCurrentIndex(5);
-        }else{
-            ui->stackedWidget->setCurrentIndex(2);
-            car_array = rental_page->show_Rental_page(rental_page_index);
+    Database db;
+    //if(Account=="customer" && Password=="password"){
+    if(db.checkPassword(Account,Password)){
+        int type=db.getAccountType(Account);
+        if(type==0){
+            customer = new Person();
+            if(customer->is_rental_car){
+                ui->stackedWidget->setCurrentIndex(5);
+            }else{
+                //all_car_array = ;
+                ui->stackedWidget->setCurrentIndex(2);
+                car_array = rental_page->show_Rental_page(rental_page_index);
+            }
+        }else if(type==1){
+            ui->stackedWidget->setCurrentIndex(7);
         }
-
-    }
-    else if(Account=="company" && Password=="password"){
-        ui->stackedWidget->setCurrentIndex(7);
     }else{
-         ui->Login_Message->setText("登入失敗 !!");
+        ui->Login_Message->setText("登入失敗 !!");
     }
 }
 
@@ -85,7 +89,7 @@ void MainWindow::on_picture1_Button_clicked()
     rental_page->show_Product_page(img_qpath);
 }
 
-void MainWindow::on_picture2_Button_clicked()
+void MainWindow::on_picture2_Button_clicked()//----
 {
     ui->stackedWidget->setCurrentIndex(3);
     rental_car = car_array[1];
@@ -93,7 +97,7 @@ void MainWindow::on_picture2_Button_clicked()
     rental_page->show_Product_page(img_qpath);
 }
 
-void MainWindow::on_NextPageButton_clicked()
+void MainWindow::on_NextPageButton_clicked()//----
 {
     if(rental_page_index == 4){
 
@@ -242,8 +246,8 @@ void MainWindow::on_DecideSigin_Button_clicked()
     sigin_customer->user_id (DataBase自動產生)
     sigin_customer->is_rental_car (預設為false)
     */
-    if(db.checkAccount("test")){
-        db.signUp("test","test","test","1234567890","test");
+    if(db.checkAccount(sigin_customer->Account)){
+        db.signUp(sigin_customer->Account,sigin_customer->Password,sigin_customer->Name,sigin_customer->phone,sigin_customer->address);
         qDebug()<<"Success";
         ui->stackedWidget->setCurrentIndex(0);
     }else{
@@ -541,3 +545,4 @@ void MainWindow::on_Return_Report_Button_clicked()
         show_repair_report();
     }
 }
+

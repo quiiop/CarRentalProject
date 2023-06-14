@@ -34,6 +34,7 @@ public:
     Rental_Car *rental_page;
     int rental_page_index;
     Car *car_array;
+    Car *all_car_array;
     Car rental_car;
     Order *rental_order;
     Person *customer;
@@ -120,6 +121,8 @@ private slots:
     void on_comboBox_4_currentIndexChanged(const QString &arg1);
 
     void on_Return_Report_Button_clicked();
+
+    void on_comboBox_activated(const QString &arg1);
 
 protected:
     Ui::MainWindow *ui;

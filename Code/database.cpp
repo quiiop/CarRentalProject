@@ -13,19 +13,35 @@ bool Database::dbdConnection() {
     db.close();
     return true;
 }
-int Database::addCar(QString Brand,QString Model,QString kilometers,QString MaxSeat,QString RentalPrice,QString filePath){
+int Database::addCar(QString Brand,QString Model,QString kilometers,QString MaxSeat,QString RentalPrice,QString CarStatus,QString filePath){
     int err = 1;
     QSqlDatabase db = QSqlDatabase::database();
     db.open();
     QSqlQuery q(db);
-    q.prepare("INSERT INTO car VALUES (0,:brand,:model,:kilometers,:MaxSeat,:RentalPrice,:filePath);");
+    q.prepare("INSERT INTO car VALUES (0,:brand,:model,:kilometers,:MaxSeat,:RentalPrice,:carStatus,:filePath,0);");
     q.bindValue(":brand", Brand);
     q.bindValue(":model", Model);
     q.bindValue(":kilometers", kilometers);
     q.bindValue(":MaxSeat", MaxSeat);
     q.bindValue(":RentalPrice", RentalPrice);
+    if(CarStatus=="良好"){
+        q.bindValue(":carStatus",3);
+    }else if(CarStatus=="尚可"){
+        q.bindValue(":carStatus",2);
+    }else{
+        q.bindValue(":carStatus",1);
+    }
     q.bindValue(":filePath", filePath);
-
+    q.prepare("SELECT id FROM carrentalsystem.car where model=:model AND kilometers=:kilometers;");
+    int id=0;
+    if(q.exec()){
+        while(q.next()){
+            id=q.value("id").toInt();
+            qDebug()<<id;
+        }
+    }
+    q.prepare("INSERT INTO parts VALUES (:ID,3,3,3);");
+    q.bindValue(":ID", id);
     if(!q.exec()){
         err=0;
     }
@@ -33,16 +49,15 @@ int Database::addCar(QString Brand,QString Model,QString kilometers,QString MaxS
     return err;
 
 }
+//int Database::
 bool Database::signUp(QString Account,QString Password,QString Name,QString Phone,QString Address){
     QSqlDatabase db = QSqlDatabase::database();
     db.open();
     bool st=true;
-    QString Type="Customer";
     QSqlQuery q(db);
-    q.prepare("INSERT INTO user VALUES (0,:account,:password,type,:name,:phone,:address);");
+    q.prepare("INSERT INTO user VALUES (0,:account,:password,0,:name,:phone,:address,0);");
     q.bindValue(":account", Account);
     q.bindValue(":password", Password);
-    q.bindValue(":type", Type);
     q.bindValue(":name", Name);
     q.bindValue(":phone", Phone);
     q.bindValue(":address", Address);
@@ -59,10 +74,54 @@ bool Database::checkAccount(QString Account){
     QSqlQuery q(db);
     q.prepare("SELECT id FROM carrentalsystem.user where account=:account;");
     q.bindValue(":account", Account);
-    qDebug()<<q.value(0);
-    if(q.value(0)==NULL){
+    int r=0;
+    if(q.exec()){
+        while(q.next()){
+            r++;
+        }
+    }
+    if(r==0){
         return true;
-    }else {
+    }else{
         return false;
     }
+}
+bool Database::checkPassword(QString Account,QString Password){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    q.prepare("SELECT password FROM carrentalsystem.user where account=:account;");
+    q.bindValue(":account", Account);
+    int r=0;
+    if(q.exec()){
+        while(q.next()){
+            if(Password==q.value("password").toString()){
+                return true;
+            }else{
+                return false;
+            }
+            r++;
+        }
+    }
+    if(r==0){
+        return false;
+    }
+}
+int Database::getAccountType(QString Account){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    q.prepare("SELECT type FROM carrentalsystem.user where account=:account;");
+    q.bindValue(":account", Account);
+    if(q.exec()){
+        while(q.next()){
+            return q.value("type").toInt();
+        }
+    }
+}
+QVector<QString> Database::getRentalCarInfo(){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    q.prepare("SELECT * FROM carrentalsystem.car where rentalStatus=0;");
 }

@@ -44,7 +44,7 @@ public:
     QPushButton *SubmitButton;
 
     QString filePath;
-
+    QString newFilePath;
 signals:
 
 private slots:

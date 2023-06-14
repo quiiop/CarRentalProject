@@ -27,6 +27,7 @@ public:
     void clear_repair_report_pg();
     void show_repair_report_detail(Order *order);
     void clear_repair_report_detail_pg();
+    bool check_Date_label_format(QString year, QString month, QString date);
 
     Test1 *upload_car_infor_w;
     QString Account;

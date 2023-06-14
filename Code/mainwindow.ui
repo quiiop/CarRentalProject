@@ -17,14 +17,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
+      <x>-10</x>
+      <y>-20</y>
       <width>1217</width>
       <height>747</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="Login_page">
      <widget class="QLabel" name="label">
@@ -171,8 +171,8 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>510</x>
-        <y>110</y>
+        <x>500</x>
+        <y>40</y>
         <width>131</width>
         <height>61</height>
        </rect>
@@ -181,11 +181,11 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Account : &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="SigIN_Account_lineEdit">
       <property name="geometry">
        <rect>
-        <x>670</x>
-        <y>110</y>
+        <x>650</x>
+        <y>40</y>
         <width>481</width>
         <height>61</height>
        </rect>
@@ -197,8 +197,8 @@
      <widget class="QLabel" name="label_29">
       <property name="geometry">
        <rect>
-        <x>510</x>
-        <y>250</y>
+        <x>500</x>
+        <y>130</y>
         <width>131</width>
         <height>61</height>
        </rect>
@@ -207,11 +207,11 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Password : &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
+     <widget class="QLineEdit" name="SignIN_Password_lineEdit_2">
       <property name="geometry">
        <rect>
-        <x>670</x>
-        <y>250</y>
+        <x>650</x>
+        <y>130</y>
         <width>481</width>
         <height>61</height>
        </rect>
@@ -220,11 +220,11 @@
        <string notr="true">font: 16pt &quot;Arial&quot;;</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="DecideSigin_Button">
       <property name="geometry">
        <rect>
-        <x>510</x>
-        <y>500</y>
+        <x>440</x>
+        <y>580</y>
         <width>301</width>
         <height>61</height>
        </rect>
@@ -236,13 +236,102 @@
        <string>註冊</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_30">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>230</y>
+        <width>121</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Name : </string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="SignIN_Name_lineEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>220</y>
+        <width>481</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Arial&quot;;
+font: 16pt &quot;Arial&quot;;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>320</y>
+        <width>121</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>電話 : </string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="SignIN_phone_lineEdit_4">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>310</y>
+        <width>481</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Arial&quot;;
+font: 16pt &quot;Arial&quot;;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>400</y>
+        <width>121</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>位置 : </string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="SigIN_address_lineEdit_5">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>400</y>
+        <width>481</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Arial&quot;;</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="Custom_page">
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
         <x>520</x>
-        <y>10</y>
+        <y>30</y>
         <width>181</width>
         <height>61</height>
        </rect>
@@ -817,7 +906,7 @@ background-image: url(:/pic/image/white.png);</string>
       <property name="geometry">
        <rect>
         <x>410</x>
-        <y>10</y>
+        <y>50</y>
         <width>371</width>
         <height>71</height>
        </rect>
@@ -916,6 +1005,77 @@ background-image: url(:/pic/image/white.png);</string>
        <string>還車</string>
       </property>
      </widget>
+     <zorder>Return_Car_Button</zorder>
+     <zorder>label_23</zorder>
+     <zorder>order_product_picture</zorder>
+     <zorder>label_24</zorder>
+     <zorder>label_25</zorder>
+     <zorder>label_26</zorder>
+     <zorder>label_27</zorder>
+    </widget>
+    <widget class="QWidget" name="customer_report_page">
+     <widget class="QComboBox" name="comboBox">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>230</y>
+        <width>191</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>請選擇評價</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>良好</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>普通</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>糟糕</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_33">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>50</y>
+        <width>451</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;租車評價&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="customer_report_button">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>430</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>提交回饋</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="Company_page">
      <widget class="QLabel" name="label_4">
@@ -944,7 +1104,7 @@ background-image: url(:/pic/image/white.png);</string>
        <string>上傳車子</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="Rapair_Report_Button">
+     <widget class="QPushButton" name="company_Rapair_Report_Button">
       <property name="geometry">
        <rect>
         <x>510</x>
@@ -957,7 +1117,7 @@ background-image: url(:/pic/image/white.png);</string>
        <string>整修報告</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="Business_Analyze_Button">
+     <widget class="QPushButton" name="company_Business_Analyze_Button">
       <property name="geometry">
        <rect>
         <x>890</x>
@@ -968,6 +1128,641 @@ background-image: url(:/pic/image/white.png);</string>
       </property>
       <property name="text">
        <string>商業分析</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="company_repaire_page">
+     <widget class="QLabel" name="label_34">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>211</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;整修報告&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_35">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>130</y>
+        <width>1171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/pic/image/white.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_36">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>210</y>
+        <width>1171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/pic/image/white.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_37">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>300</y>
+        <width>1171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/pic/image/white.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_38">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>380</y>
+        <width>1171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/pic/image/white.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_39">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>470</y>
+        <width>1171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/pic/image/white.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_40">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>560</y>
+        <width>1171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/pic/image/white.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="repaire_report_next_pg_button">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>660</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>下一頁</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="repaire_report_last_pg_button">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>660</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>上一頁</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="repaire_report_label_1">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>140</y>
+        <width>851</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="repaire_report_label_2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>220</y>
+        <width>851</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="repaire_report_label_3">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>310</y>
+        <width>851</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="repaire_report_label_4">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>390</y>
+        <width>851</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="repaire_report_label_5">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>480</y>
+        <width>851</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="repaire_report_label_6">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>570</y>
+        <width>851</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="repaire_report_button_1">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>140</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>查看</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="repaire_report_button_2">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>220</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>查看</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="repaire_report_button_3">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>310</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>查看</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="repaire_report_button_4">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>390</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>查看</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="repaire_report_button_5">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>480</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>查看</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="repaire_report_button_6">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>570</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>查看</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="company_repair_report_detail">
+     <widget class="QLabel" name="label_41">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;整修報告&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_42">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>120</y>
+        <width>1151</width>
+        <height>271</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/pic/image/white.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_43">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;訂單資訊&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="repair_report_detail_user_id">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>170</y>
+        <width>351</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>User ID</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="repair_report_detail_order_id">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>250</y>
+        <width>351</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Order ID</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="repair_report_detail_car_id">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>330</y>
+        <width>351</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Car ID</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="repair_report_detail_RentalDate">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>170</y>
+        <width>571</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Rental Date</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="repair_report_detail_ExpireDate">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>280</y>
+        <width>571</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Expire Date</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_44">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>410</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 11pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Battery</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_45">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>500</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 11pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Engine</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_46">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>600</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 11pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Tire</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_2">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>420</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>選擇</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>良好</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>糟糕</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="comboBox_3">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>510</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>選擇</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>良好</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>糟糕</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="comboBox_4">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>600</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>選擇</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>良好</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>糟糕</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="Return_Report_Button">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>630</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>回報</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="battery_err_msg_label">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>420</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="engine_err_msg_label">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>510</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="tire_err_msg_label">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>600</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Return_Report_err_msg_label">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>550</y>
+        <width>241</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="company_analysis_page">
+     <widget class="QLabel" name="label_47">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>231</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Arial&quot;;</string>
+      </property>
+      <property name="text">
+       <string>喜愛度分析報告</string>
       </property>
      </widget>
     </widget>

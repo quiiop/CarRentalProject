@@ -14,6 +14,10 @@ public:
     QString RentalPriceLine;
     QString CarStatus;
     QString filePath;
+    QString car_id;
+    bool engine;
+    bool tire;
+    bool battery;
     bool is_rental;
 
     QString get_BrandInput();

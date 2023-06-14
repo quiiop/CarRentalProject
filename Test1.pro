@@ -33,7 +33,8 @@ SOURCES += \
     Code/database.cpp \
     Code/person.cpp \
     Code/rental_car_system.cpp \
-    Code/order.cpp
+    Code/order.cpp \
+    Code/report.cpp
 
 HEADERS += \
         Code\mainwindow.h \
@@ -44,7 +45,8 @@ HEADERS += \
     Code/person.h \
     Code/customer.h \
     Code/rental_car_system.h \
-    Code/order.h
+    Code/order.h \
+    Code/report.h
 
 FORMS += \
         Code\mainwindow.ui \

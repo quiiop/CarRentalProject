@@ -22,9 +22,12 @@ Car* Rental_Car::show_Rental_page(int rental_page_index)
     QString img1_qpath = QString::fromStdString(img1_path);
     QString img2_qpath = QString::fromStdString(img2_path);
 
+
+
     Car *car_array = new Car[2];
-    car_array[0].filePath =img1_qpath;
-    car_array[1].filePath =img2_qpath;
+//    car_array[0].KmInput
+    car_array[0].filePath = img1_qpath;
+    car_array[1].filePath = img2_qpath;
 
     QPixmap image(img1_qpath);
     image = image.scaled(width, height);

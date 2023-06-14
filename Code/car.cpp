@@ -6,11 +6,6 @@ Car::Car(){
     qDebug() << "Car create";
 }
 
-QString Car::get_BrandInput(){
-    return this->BrandInput;
-
-}
-
 void Car::set_car(QString BrandInput, QString KmInput, QString ModelLine, QString CarStatus, QString MaxSeatLine, QString RentalPriceLine, QString filePath){
     this->BrandInput = BrandInput;
     this->KmInput = KmInput;

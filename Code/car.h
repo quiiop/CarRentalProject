@@ -20,10 +20,9 @@ public:
     bool battery;
     bool is_rental;
 
-    QString get_BrandInput();
+    QString BrandInput;
     void set_car(QString BrandInput, QString KmInput, QString ModelLine, QString CarStatus, QString MaxSeatLine, QString RentalPriceLine, QString filePath);
 
 private:
-    QString BrandInput;
 };
 #endif // CAR_H

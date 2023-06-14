@@ -15,6 +15,8 @@ public:
     bool checkAccount(QString Account);//檢查是否有重複
     bool checkPassword(QString Account,QString Password);//檢查密碼
     int getAccountType(QString Account);//取得帳號Type
+    int getCarIdByModelAndKilometers(QString Model,QString kilometers);
+    void insertPartsStatus(int ID);
     QVector<QString> getRentalCarInfo();
 };
 

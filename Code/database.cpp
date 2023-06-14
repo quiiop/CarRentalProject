@@ -1,5 +1,6 @@
 #include "database.h"
 #include <QDebug>
+#include <QT>
 bool Database::dbdConnection() {
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
     db.setHostName("140.124.183.46");
@@ -18,7 +19,7 @@ int Database::addCar(QString Brand,QString Model,QString kilometers,QString MaxS
     QSqlDatabase db = QSqlDatabase::database();
     db.open();
     QSqlQuery q(db);
-    q.prepare("INSERT INTO car VALUES (0,:brand,:model,:kilometers,:MaxSeat,:RentalPrice,:carStatus,:filePath,0);");
+    q.prepare("INSERT INTO car VALUES (0,:brand,:model,:kilometers,:MaxSeat,:RentalPrice,:carStatus,:filePath,0,3,3,3);");
     q.bindValue(":brand", Brand);
     q.bindValue(":model", Model);
     q.bindValue(":kilometers", kilometers);
@@ -32,16 +33,6 @@ int Database::addCar(QString Brand,QString Model,QString kilometers,QString MaxS
         q.bindValue(":carStatus",1);
     }
     q.bindValue(":filePath", filePath);
-    q.prepare("SELECT id FROM carrentalsystem.car where model=:model AND kilometers=:kilometers;");
-    int id=0;
-    if(q.exec()){
-        while(q.next()){
-            id=q.value("id").toInt();
-            qDebug()<<id;
-        }
-    }
-    q.prepare("INSERT INTO parts VALUES (:ID,3,3,3);");
-    q.bindValue(":ID", id);
     if(!q.exec()){
         err=0;
     }
@@ -49,7 +40,6 @@ int Database::addCar(QString Brand,QString Model,QString kilometers,QString MaxS
     return err;
 
 }
-//int Database::
 bool Database::signUp(QString Account,QString Password,QString Name,QString Phone,QString Address){
     QSqlDatabase db = QSqlDatabase::database();
     db.open();
@@ -124,4 +114,30 @@ QVector<QString> Database::getRentalCarInfo(){
     db.open();
     QSqlQuery q(db);
     q.prepare("SELECT * FROM carrentalsystem.car where rentalStatus=0;");
+    if(q.exec()){
+        while(q.next()){
+            q.value("type").toInt();
+        }
+    }
 }
+//int Database::accountId(){
+
+//}
+//bool Database::submitOrder(QString Account,QString Password,QString Name,QString Phone,QString Address){
+//    QSqlDatabase db = QSqlDatabase::database();
+//    db.open();
+//    bool st=true;
+//    QSqlQuery q(db);
+//    q.prepare("INSERT INTO user VALUES (0,:account,:password,0,:name,:phone,:address,0);");
+//    q.bindValue(":account", Account);
+//    q.bindValue(":password", Password);
+//    q.bindValue(":name", Name);
+//    q.bindValue(":phone", Phone);
+//    q.bindValue(":address", Address);
+//    if(!q.exec()){
+//        st=false;
+//        qDebug()<<"失敗";
+//    }
+//    db.close();
+//    return st;
+//}

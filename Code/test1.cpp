@@ -181,7 +181,7 @@ int Test1::check_label(){
 
 void Test1::check_car_info(){
     qDebug()<<"Car Check !!";
-    qDebug()<<"Brand Line "<<car.get_BrandInput();
+    qDebug()<<"Brand Line "<<car.BrandInput;
     qDebug()<<"Km Line "<<car.KmInput;
     qDebug()<<"MaxSeatLine Line "<<car.MaxSeatLine;
     qDebug()<<"ModelLine Line "<<car.ModelLine;
@@ -206,8 +206,8 @@ void Test1::on_SubmitButton_clicked()
     int r2 = save_file(filePath);
     qDebug()<<"r1 = "<<r1<<" r2 = "<<r2;
     Rental_car_info();
-    qDebug()<<"Brand Line "<<car.get_BrandInput();
-    int r3 = db.addCar(car.get_BrandInput(),car.ModelLine,car.KmInput,car.MaxSeatLine,car.RentalPriceLine,car.CarStatus,car.filePath);
+    qDebug()<<"Brand Line "<<car.BrandInput;
+    int r3 = db.addCar(car.BrandInput,car.ModelLine,car.KmInput,car.MaxSeatLine,car.RentalPriceLine,car.CarStatus,car.filePath);
     if (r1==1 && r2==1 && r3==1){ // add && r3==1
 
        message->setText("上傳成功");

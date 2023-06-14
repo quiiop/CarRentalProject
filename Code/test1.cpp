@@ -12,6 +12,7 @@ Test1::Test1(QWidget *parent) :
     ui->setupUi(this);
     this->setFixedSize(1100, 700);   //fix screen size
     this->setWindowTitle("上傳車輛資訊");
+
 }
 
 void Test1::on_BrandLine_textEdited(const QString &arg1)
@@ -63,7 +64,7 @@ int Test1::save_file(QString filePath){
     if (!filePath.isEmpty()) {
         QFile file(filePath);
         if (file.open(QIODevice::ReadOnly)) {
-            QString newFilePath = "D:/Qt project/Test1/image/"+file.fileName().split('/').last();
+            QString newFilePath = "E:/Qt project/Test1/image/"+file.fileName().split('/').last();
             QFile newFile(newFilePath);
             if (newFile.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Unbuffered)) {
                 QDataStream out(&newFile);
@@ -194,6 +195,7 @@ void Test1::on_SubmitButton_clicked()
 {
     // qDebug()<<__cplusplus;
     int  r1 = check_label();
+    Database db;
     qDebug()<<"Brand Line "<<BrandInput;
     qDebug()<<"Km Line "<<KmInput;
     qDebug()<<"MaxSeatLine Line "<<MaxSeatLine;
@@ -205,7 +207,7 @@ void Test1::on_SubmitButton_clicked()
     qDebug()<<"r1 = "<<r1<<" r2 = "<<r2;
     Rental_car_info();
     qDebug()<<"Brand Line "<<car.get_BrandInput();
-    int r3 = AdddCar(car.get_BrandInput(),car.ModelLine,car.KmInput,car.MaxSeatLine,car.RentalPriceLine,car.filePath);
+    int r3 = db.addCar(car.get_BrandInput(),car.ModelLine,car.KmInput,car.MaxSeatLine,car.RentalPriceLine,car.filePath);
     if (r1==1 && r2==1 && r3==1){ // add && r3==1
 
        message->setText("上傳成功");

@@ -26,6 +26,8 @@ private slots:
 
     void on_Login_Password_textEdited(const QString &arg1);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Test2 *ui;
     Person person;

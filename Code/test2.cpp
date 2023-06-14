@@ -1,5 +1,6 @@
 #include "test2.h"
 #include "ui_test2.h"
+#include "database.h"
 #include <QDebug>
 
 Test2::Test2(QWidget *parent) : QMainWindow(parent)
@@ -38,18 +39,3 @@ Test2::~Test2()
 {
     delete ui;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

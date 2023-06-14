@@ -230,6 +230,7 @@ void MainWindow::on_SigIN_address_lineEdit_5_textEdited(const QString &arg1)
 
 void MainWindow::on_DecideSigin_Button_clicked()
 {
+    Database db;
     // save object sign_customer
     /*
     存sign_customer
@@ -241,7 +242,15 @@ void MainWindow::on_DecideSigin_Button_clicked()
     sigin_customer->user_id (DataBase自動產生)
     sigin_customer->is_rental_car (預設為false)
     */
-    ui->stackedWidget->setCurrentIndex(0);
+    if(db.checkAccount("test")){
+        db.signUp("test","test","test","1234567890","test");
+        qDebug()<<"Success";
+        ui->stackedWidget->setCurrentIndex(0);
+    }else{
+        qDebug()<<"Fail Account重複!!";
+        ui->error_message->setText("重複的Account! 請重新輸入!");
+    }
+
 }
 
 void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)

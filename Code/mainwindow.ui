@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>9</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Login_page">
      <widget class="QLabel" name="label">
@@ -323,6 +323,24 @@ font: 16pt &quot;Arial&quot;;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">font: 16pt &quot;Arial&quot;;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="error_message">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>540</y>
+        <width>251</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </widget>
@@ -1774,7 +1792,7 @@ background-image: url(:/pic/image/white.png);</string>
      <x>0</x>
      <y>0</y>
      <width>1217</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

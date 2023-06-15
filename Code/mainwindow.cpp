@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->setCurrentIndex(0); // Login Page
     int width = ui->Login_cover->width();
     int height = ui->Login_cover->height();
-    QPixmap image("D:/QtProject/CarRentalProject/image/cover.jpg");
+    QPixmap image("C:/Users/CSS_Tim/Desktop/OOAD/CarRentalProject/image/cover.jpg");
     image = image.scaled(width, height);
     ui->Login_cover->setPixmap(image);
     ui->Login_cover->show();
@@ -61,8 +61,11 @@ void MainWindow::on_Login_Button_clicked()
         int type=db.getAccountType(Account);
         if(type==0){
             customer = new Person();
+            customer->user_id = db.getCustomerID(Account);
+            customer->is_rental_car = db.getCustomerRentalCar(customer->user_id);
             if(customer->is_rental_car){
                 ui->stackedWidget->setCurrentIndex(5);
+                //getInfo
             }else{
                 //all_car_array = ;
                 ui->stackedWidget->setCurrentIndex(2);
@@ -85,8 +88,19 @@ void MainWindow::on_picture1_Button_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
     rental_car = car_array[0];
+    QString carID = rental_car.car_id;
     QString img_qpath = rental_car.filePath;
+    QString brand = rental_car.BrandInput;
+    QString kilomenter = rental_car.KmInput;
+    QString model = rental_car.ModelLine;
+    QString rentalPricel = rental_car.RentalPriceLine;
+    QString maxSeat = rental_car.MaxSeatLine;
     rental_page->show_Product_page(img_qpath);
+    ui->brand->setText(brand);
+    ui->model->setText(model);
+    ui->km->setText(kilomenter);
+    ui->Reantal_Price->setText(rentalPricel);
+    ui->Max_Seat->setText(maxSeat);
 }
 
 void MainWindow::on_picture2_Button_clicked()//----
@@ -119,7 +133,7 @@ void MainWindow::on_PreviousPageButton_clicked()
 
 void MainWindow::on_Return_RentalCar_Button_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 void MainWindow::on_Order_Button_clicked()
@@ -169,6 +183,12 @@ void MainWindow::on_decide_order_Button_clicked()
     rental_order->car_id = rental_car.car_id;
     rental_order->user_id = customer->user_id;
     rental_order->order_id = "";
+    Database db;
+    QString rentalDate=QString::number(rental_order->rental_date[0])+"-"+QString::number(rental_order->rental_date[1])+"-"+QString::number(rental_order->rental_date[2]);
+    QString expireDate=QString::number(rental_order->expire_date[0])+"-"+QString::number(rental_order->expire_date[1])+"-"+QString::number(rental_order->expire_date[2]);
+    db.updateRentalCar(customer->user_id);
+    db.addOrder(rental_order->user_id,rental_order->car_id,rentalDate,expireDate);
+    customer->is_rental_car = true;
     /*
     這裡要儲存客戶的order
     rental_order->car_id
@@ -556,4 +576,5 @@ void MainWindow::on_Return_Report_Button_clicked()
         show_repair_report();
     }
 }
+
 

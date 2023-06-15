@@ -146,15 +146,15 @@ private slots:
     }
 };
 
-int main(int argc, char *argv[])
-{
-    QCoreApplication app(argc, argv);
-    Database db;
-    db.dbdConnection();
-    MyTest test;
-    QTest::qExec(&test);
+//int main(int argc, char *argv[])
+//{
+//    QCoreApplication app(argc, argv);
+//    Database db;
+//    db.dbdConnection();
+//    MyTest test;
+//    QTest::qExec(&test);
 
-    return 0;
-}
+//    return 0;
+//}
 
 #include "test_first.moc"

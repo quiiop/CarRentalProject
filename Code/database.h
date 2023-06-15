@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QString>
 #include <QSqlQuery>
+#include <string>
 
 class Database
 {
@@ -17,7 +18,14 @@ public:
     int getAccountType(QString Account);//取得帳號Type
     int getCarIdByModelAndKilometers(QString Model,QString kilometers);
     void insertPartsStatus(int ID);
-    QVector<QString> getRentalCarInfo();
+    QString getRentalCarInfo();
+    QStringList getCarBrandInfo();
+    QString getCustomerID(QString Account);
+    bool getCustomerRentalCar(QString customertID);
+    void updateRentalCar(QString customertID);
+    void escheatRentalCar(QString customertID);
+    QString addOrder(QString customertID,QString carID,QString rentalDate,QString expireDate);
+
 };
 
 

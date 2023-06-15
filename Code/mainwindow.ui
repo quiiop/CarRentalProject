@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="Login_page">
      <widget class="QLabel" name="label">
@@ -417,6 +417,9 @@ background-image: url(:/pic/image/white.png);</string>
       <property name="text">
        <string/>
       </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
      </widget>
      <widget class="QLabel" name="picture2">
       <property name="geometry">
@@ -429,6 +432,9 @@ background-image: url(:/pic/image/white.png);</string>
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLabel" name="label_7">
@@ -443,6 +449,9 @@ background-image: url(:/pic/image/white.png);</string>
       <property name="text">
        <string>車型</string>
       </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
      </widget>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
@@ -455,6 +464,9 @@ background-image: url(:/pic/image/white.png);</string>
       </property>
       <property name="text">
        <string>租金</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLabel" name="label_9">
@@ -469,6 +481,9 @@ background-image: url(:/pic/image/white.png);</string>
       <property name="text">
        <string>車型</string>
       </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
      </widget>
      <widget class="QLabel" name="label_10">
       <property name="geometry">
@@ -481,6 +496,9 @@ background-image: url(:/pic/image/white.png);</string>
       </property>
       <property name="text">
        <string>租金</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QPushButton" name="picture1_Button">
@@ -535,6 +553,9 @@ background-image: url(:/pic/image/white.png);</string>
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLabel" name="brand">
@@ -939,8 +960,8 @@ background-image: url(:/pic/image/white.png);</string>
      <widget class="QLabel" name="order_product_picture">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>90</y>
+        <x>40</x>
+        <y>100</y>
         <width>471</width>
         <height>481</height>
        </rect>
@@ -1792,7 +1813,7 @@ background-image: url(:/pic/image/white.png);</string>
      <x>0</x>
      <y>0</y>
      <width>1217</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

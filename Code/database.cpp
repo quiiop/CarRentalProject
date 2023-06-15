@@ -1,6 +1,7 @@
 #include "database.h"
 #include <QDebug>
 #include <QT>
+
 bool Database::dbdConnection() {
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
     db.setHostName("140.124.183.46");
@@ -75,6 +76,7 @@ bool Database::checkAccount(QString Account){
     }else{
         return false;
     }
+    db.close();
 }
 bool Database::checkPassword(QString Account,QString Password){
     QSqlDatabase db = QSqlDatabase::database();
@@ -108,17 +110,92 @@ int Database::getAccountType(QString Account){
             return q.value("type").toInt();
         }
     }
+    db.close();
 }
-QVector<QString> Database::getRentalCarInfo(){
+QStringList Database::getCarBrandInfo(){
     QSqlDatabase db = QSqlDatabase::database();
     db.open();
     QSqlQuery q(db);
-    q.prepare("SELECT * FROM carrentalsystem.car where rentalStatus=0;");
+    QStringList brand;
+    q.prepare("SELECT brand,model,kilomenter,maxSeat,rentalPrice FROM carrentalsystem.car where rentalStatus=0 order by id;");
     if(q.exec()){
         while(q.next()){
-            q.value("type").toInt();
+            brand << q.value("brand").toString();
         }
     }
+    db.close();
+    return brand;
+
+}
+QString Database::getCustomerID(QString Account){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    q.prepare("SELECT id FROM carrentalsystem.user where account=:account;");
+    q.bindValue(":account", Account);
+    if(q.exec()){
+        while(q.next()){
+            return q.value("id").toString();
+        }
+    }
+    db.close();
+}
+bool Database::getCustomerRentalCar(QString customertID){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    q.prepare("SELECT rentalCar FROM carrentalsystem.user where id=:ID;");
+    q.bindValue(":ID", customertID);
+    if(q.exec()){
+        while(q.next()){
+            if("1"==q.value("rentalCar").toString()){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+    }
+    db.close();
+}
+void Database::updateRentalCar(QString customertID){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    qDebug()<<customertID.toInt();
+    q.prepare("UPDATE carrentalsystem.user SET rentalCar=1 where id=:ID;");
+    q.bindValue(":ID", customertID.toInt());
+    q.exec();
+    db.close();
+}
+void Database::escheatRentalCar(QString customertID){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    q.prepare("UPDATE carrentalsystem.user SET rentalCar=0 where id=:ID;");
+    q.bindValue(":ID", customertID.toInt());
+    q.exec();
+    db.close();
+}
+QString Database::addOrder(QString customertID,QString carID,QString rentalDate,QString expireDate){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    q.prepare("INSERT INTO executionorder VALUES (0,:customertID,:carID,:rentalDate,:expireDate);");
+    q.bindValue(":customertID", customertID);
+    q.bindValue(":carID", carID);
+    q.bindValue(":rentalDate", rentalDate);
+    q.bindValue(":expireDate", expireDate);
+    q.exec();
+    q.prepare("SELECT orderID FROM carrentalsystem.executionorder where customerID=:customertID AND carID=:carID;");
+    q.bindValue(":customertID", customertID);
+    q.bindValue(":carID", carID);
+    if(q.exec()){
+        while(q.next()){
+            return q.value("orderID").toString();
+        }
+    }
+    db.close();
 }
 //int Database::accountId(){
 

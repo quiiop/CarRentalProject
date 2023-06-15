@@ -123,8 +123,6 @@ private slots:
 
     void on_Return_Report_Button_clicked();
 
-    void on_comboBox_activated(const QString &arg1);
-
 protected:
     Ui::MainWindow *ui;
 };

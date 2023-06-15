@@ -3,7 +3,7 @@
 #include "test2.h"
 #include <QApplication>
 
-/*
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -13,10 +13,7 @@ int main(int argc, char *argv[])
     window.show();
     db.dbdConnection();
 
-    //Test2 t2;
-    //t2.show();
-
     return a.exec();
 }
 
-*/
+

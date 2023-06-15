@@ -1,6 +1,6 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
-
+#include <QString>
 namespace Customer_space {
     class Customer;
 }
@@ -8,6 +8,7 @@ namespace Customer_space {
 class Customer{
 public:
     explicit Customer();
+    QString customerID();
 private:
 };
 

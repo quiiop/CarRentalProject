@@ -123,6 +123,20 @@ private slots:
 
     void on_Return_Report_Button_clicked();
 
+    void on_company_Business_Analyze_Button_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_analysis_clicked();
+
+    void on_company_Rapair_Report_Button_2_clicked();
+
+    void on_repaire_report_last_pg_button_2_clicked();
+
+    void on_Return_Car_Button_2_clicked();
+
+    void on_PreviousPageButton_2_clicked();
+
 protected:
     Ui::MainWindow *ui;
 };

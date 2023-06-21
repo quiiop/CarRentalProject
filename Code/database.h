@@ -25,6 +25,11 @@ public:
     void updateRentalCar(QString customertID);
     void escheatRentalCar(QString customertID);
     QString addOrder(QString customertID,QString carID,QString rentalDate,QString expireDate);
+    QString getOrderID(QString customertID);
+    QString getOrderCarID(QString orderID);
+    QString getOrderrentalDate(QString orderID);
+    QString getOrderexpireDate(QString orderID);
+    void finishOrder(QString orderID,QString evaluation);
 
 };
 

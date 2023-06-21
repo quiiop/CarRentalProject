@@ -16,6 +16,8 @@ public:
     QString car_id;
     Car *rental_car;
     Report *order_report;
+    QString rentalDate;
+    QString expireDate;
     int rental_date[3];
     int expire_date[3];
     void set_order(Car rental_car,int *rental_date, int *expire_date);

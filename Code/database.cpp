@@ -197,6 +197,89 @@ QString Database::addOrder(QString customertID,QString carID,QString rentalDate,
     }
     db.close();
 }
+QString Database::getOrderID(QString customertID){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    q.prepare("SELECT orderID FROM carrentalsystem.executionorder where customerID=:ID;");
+    q.bindValue(":ID", customertID);
+    if(q.exec()){
+        while(q.next()){
+            return q.value("orderID").toString();
+        }
+    }
+    db.close();
+}
+QString Database::getOrderCarID(QString orderID){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    q.prepare("SELECT carID FROM carrentalsystem.executionorder where orderID=:ID;");
+    q.bindValue(":ID", orderID);
+    if(q.exec()){
+        while(q.next()){
+            return q.value("carID").toString();
+        }
+    }
+    db.close();
+}
+QString Database::getOrderrentalDate(QString orderID){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    q.prepare("SELECT rentalDate FROM carrentalsystem.executionorder where orderID=:ID;");
+    q.bindValue(":ID", orderID);
+    if(q.exec()){
+        while(q.next()){
+            return q.value("rentalDate").toString();
+        }
+    }
+    db.close();
+}
+QString Database::getOrderexpireDate(QString orderID){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    q.prepare("SELECT expireDate FROM carrentalsystem.executionorder where orderID=:ID;");
+    q.bindValue(":ID", orderID);
+    if(q.exec()){
+        while(q.next()){
+            return q.value("expireDate").toString();
+        }
+    }
+    db.close();
+}
+void Database::finishOrder(QString orderID,QString evaluation){
+    QSqlDatabase db = QSqlDatabase::database();
+    db.open();
+    QSqlQuery q(db);
+    QString customerID;
+    QString carID;
+    QString rentalDate;
+    QString expireDate;
+    q.prepare("SELECT * FROM carrentalsystem.executionorder where orderID=:ID;");
+    q.bindValue(":ID", orderID);
+    if(q.exec()){
+        while(q.next()){
+             customerID = q.value("customerID").toString();
+             carID = q.value("carID").toString();
+             rentalDate = q.value("rentalDate").toString();
+             expireDate = q.value("expireDate").toString();
+        }
+    }
+    q.prepare("INSERT INTO finishorder VALUES (:ID,:customerID,:carID,:rentalDate,:expireDate,0,:evaluation);");
+    q.bindValue(":ID", orderID);
+    q.bindValue(":customerID", customerID);
+    q.bindValue(":carID", carID);
+    q.bindValue(":rentalDate", rentalDate);
+    q.bindValue(":expireDate", expireDate);
+    q.bindValue(":evaluation", evaluation);
+    q.exec();
+    q.prepare("DELETE FROM carrentalsystem.executionorder WHERE orderID = :ID;");
+    q.bindValue(":ID", orderID);
+    q.exec();
+    db.close();
+}
 //int Database::accountId(){
 
 //}

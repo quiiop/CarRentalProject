@@ -55,17 +55,42 @@ void MainWindow::on_Password_lineEdit_textEdited(const QString &arg1)
 
 void MainWindow::on_Login_Button_clicked()
 {
-    Database db;
+    Database db;    
     //if(Account=="customer" && Password=="password"){
     if(db.checkPassword(Account,Password)){
+        ui->Password_lineEdit->setText("");
         int type=db.getAccountType(Account);
         if(type==0){
             customer = new Person();
             customer->user_id = db.getCustomerID(Account);
             customer->is_rental_car = db.getCustomerRentalCar(customer->user_id);
             if(customer->is_rental_car){
+                rental_order = new Order;
+                rental_order->user_id = customer->user_id;
+                qDebug()<<rental_order->user_id;
+                rental_order->order_id = db.getOrderID(rental_order->user_id);
+                qDebug()<<rental_order->order_id;
+                rental_order->car_id = db.getOrderCarID(rental_order->order_id);
+                qDebug()<<rental_order->car_id;
+                rental_order->rentalDate = db.getOrderrentalDate(rental_order->order_id);
+                qDebug()<<rental_order->rentalDate;
+                rental_order->expireDate = db.getOrderrentalDate(rental_order->order_id);
+                qDebug()<<rental_order->expireDate;
                 ui->stackedWidget->setCurrentIndex(5);
+                std::string path = "C:/Users/CSS_Tim/Desktop/OOAD/CarRentalProject/image/";
+                std::string temp[] = {"car.jpg", "car2.jpg", "car3.jpg", "car4.jpg", "car5.jpg", "car6.jpg"};
+                std::string img_path = path + temp[rental_order->car_id.toInt()-1];
+                QString img_qpath = QString::fromStdString(img_path);
                 //getInfo
+                int width = ui->order_product_picture->width();
+                int height = ui->product_picture->height();
+
+                QPixmap image(img_qpath);
+                image = image.scaled(width, height);
+                ui->order_product_picture->setPixmap(image);
+                ui->order_product_picture->show();
+                ui->label_25->setText(rental_order->rentalDate);
+                ui->label_27->setText(rental_order->expireDate);
             }else{
                 //all_car_array = ;
                 ui->stackedWidget->setCurrentIndex(2);
@@ -187,7 +212,7 @@ void MainWindow::on_decide_order_Button_clicked()
     QString rentalDate=QString::number(rental_order->rental_date[0])+"-"+QString::number(rental_order->rental_date[1])+"-"+QString::number(rental_order->rental_date[2]);
     QString expireDate=QString::number(rental_order->expire_date[0])+"-"+QString::number(rental_order->expire_date[1])+"-"+QString::number(rental_order->expire_date[2]);
     db.updateRentalCar(customer->user_id);
-    db.addOrder(rental_order->user_id,rental_order->car_id,rentalDate,expireDate);
+    rental_order->order_id = db.addOrder(rental_order->user_id,rental_order->car_id,rentalDate,expireDate);
     customer->is_rental_car = true;
     /*
     這裡要儲存客戶的order
@@ -219,6 +244,9 @@ void MainWindow::on_decide_order_Button_clicked()
 
 void MainWindow::on_Return_Car_Button_clicked()
 {
+    Database db;
+    db.Database::escheatRentalCar(rental_order->user_id);
+
     customer->is_rental_car = false;
     /*
     這裡要存customer的資料
@@ -301,6 +329,8 @@ void MainWindow::on_customer_report_button_clicked()
      存report資料
      rental_order->order_report->Evaluation;
      */
+    Database db;
+    db.Database::finishOrder(rental_order->order_id,"3");
     ui->stackedWidget->setCurrentIndex(2);
 }
 
@@ -315,7 +345,7 @@ void MainWindow::on_company_Rapair_Report_Button_clicked()
 
 void MainWindow::calculate_repair_report_pg(){
     /*test order*/
-    int total_order = 13;
+    int total_order = 12;
     order_array = new Order[total_order];
     /*
     這裡要改成從DataBase調出資料，存到order_array
@@ -326,18 +356,26 @@ void MainWindow::calculate_repair_report_pg(){
         order_array[i].car_id = "Test_car"+QString::number(i);
         order_array[i].user_id = "Test_user"+QString::number(i);
         order_array[i].order_id = "Test_oder"+QString::number(i);
-        order_array[i].rental_date[0] = i;
-        order_array[i].rental_date[1] = 10+i;
-        order_array[i].rental_date[2] = 20+i;
-        order_array[i].expire_date[0] = i;
-        order_array[i].expire_date[1] = 100+i;
-        order_array[i].expire_date[2] = 200+i;
+        order_array[i].rental_date[0] = 2023;
+        order_array[i].rental_date[1] = i+1;
+        order_array[i].rental_date[2] = i+1;
+        order_array[i].expire_date[0] = 2023;
+        order_array[i].expire_date[1] = i+1;
+        order_array[i].expire_date[2] = i+7;
         order_array[i].order_report = new Report();
         order_array[i].order_report->car_id = order_array[i].car_id;
         order_array[i].order_report->user_id = order_array[i].user_id;
         order_array[i].order_report->order_id = order_array[i].order_id;
         order_array[i].rental_car = new Car();
-        order_array[i].rental_car->ModelLine = "Model "+QString::number(i);
+        if(i%4==0){
+            order_array[i].rental_car->ModelLine = "TOYOTA Model-"+QString::number(i);
+        }else if (i%4==1) {
+            order_array[i].rental_car->ModelLine = "HONDA Model-"+QString::number(i);
+        }else if (i%4==2) {
+            order_array[i].rental_car->ModelLine = "NISSAN Model-"+QString::number(i);
+        }else{
+            order_array[i].rental_car->ModelLine = "FORD Model-"+QString::number(i);
+        }
     }
 
 
@@ -578,3 +616,55 @@ void MainWindow::on_Return_Report_Button_clicked()
 }
 
 
+
+void MainWindow::on_company_Business_Analyze_Button_clicked()
+{
+    QString *str_arry = new QString[15];
+    str_arry[0] = "TOYOTA Wish";
+    str_arry[1] = " , HONDA CR-V";
+    str_arry[2] = " , NISSAN TIDA";
+    str_arry[3] = " , NISSAN SENTRA";
+    str_arry[4] = "NISSAN ALTIMA";
+    str_arry[5] = " , NISSAN X-TRAIL";
+    str_arry[6] = " , HONDA CIVIC";
+    str_arry[7] = " , NISSAN GT-R";
+    str_arry[8] = "TOYOTA ALTIS";
+    str_arry[9] = " , NISSAN CAMRY";
+    str_arry[10] = " , HONDA FIT";
+    str_arry[11] = " , FORD Focus";
+    ui->comboBox_2->setCurrentIndex(10);
+    ui->label_54->setText(str_arry[0]+str_arry[1]+str_arry[2]+str_arry[3]);
+    ui->label_55->setText(str_arry[4]+str_arry[5]+str_arry[6]+str_arry[7]);
+    ui->label_56->setText(str_arry[8]+str_arry[9]+str_arry[10]+str_arry[11]);
+    ui->stackedWidget->setCurrentIndex(10);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(7);
+}
+
+void MainWindow::on_pushButton_analysis_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(7);
+}
+
+void MainWindow::on_company_Rapair_Report_Button_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_repaire_report_last_pg_button_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(7);
+}
+
+void MainWindow::on_Return_Car_Button_2_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_PreviousPageButton_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
